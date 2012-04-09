@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+body {
+  display: inline-block;
+  background-color: white;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px; }
+
+/*a {
+  color: #626262;
+  text-decoration: none; }*/
+  a img {
+    border: none; }
+
+a:hover {
+  	color: #1c77b4; }
+
+.clear {
+  	clear: both;
+  	height: 0;
+  	overflow: hidden; }
+
+.grey-form {
+	background-color: #efefef;
+}
+
+form {
+	display: block;
+	width: 200px;
+  	padding: 25px;
+	margin: 0;
+	text-align: left;
+}
+
+label {
+	display: block;
+}
+
+input {
+	height: 20px;
+	line-height: 12px;
+/*	padding: 8px 5px 0 5px;
+	margin: 0 0 8px 0;*/
+}
