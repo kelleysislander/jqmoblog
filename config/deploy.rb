@@ -53,16 +53,6 @@ set :rvm_type, :user
 
 puts "******************* deploy.rb: require capistrano_database **********************"
 
-require "capistrano_database"
-
-# namespace :db do
-#   desc 'Migrate DB down, up, seed'
-#   # run like: cap staging deploy db:seed
-#   task :seed do
-#     run "rake db:seed"
-#   end
-# end
-
 namespace :deploy do
 
   desc "Restarting mod_rails with restart.txt, capistrano runs this by default"
@@ -74,21 +64,21 @@ namespace :deploy do
   # NOTE: you must manually create the "#{shared_path}/config/" dir since capistrano does not create a "config" dir for you
   # unless you already ran "cap deploy:setup" which would have created the dir and put the database.yml into it
   
-  desc 'moves the current .rvmrc into #{shared_path/config/.rvmrc and symlinks it'
-  namespace :rvmrc do
-    task :symlink, :except => { :no_release => true } do
-      puts "************ running: deploy.rb: symlinking .rvmrc: ln -nfs #{shared_path}/config/.rvmrc #{release_path}/config/.rvmrc"
-      run "mv -vf #{release_path}/.rvmrc #{shared_path}/config/.rvmrc"
-      puts "************ running: ln -nfs #{shared_path}/config/.rvmrc #{release_path}/.rvmrc"
-      # run "ln -nfs .rvmrc #{shared_path}/config/.rvmrc"
-      run "ln -nfs #{shared_path}/config/.rvmrc #{release_path}/.rvmrc"
-    end
-  end
+  # desc 'moves the current .rvmrc into #{shared_path/config/.rvmrc and symlinks it'
+  # namespace :rvmrc do
+  #   task :symlink, :except => { :no_release => true } do
+  #     puts "************ running: deploy.rb: symlinking .rvmrc: ln -nfs #{shared_path}/config/.rvmrc #{release_path}/config/.rvmrc"
+  #     run "mv -vf #{release_path}/.rvmrc #{shared_path}/config/.rvmrc"
+  #     puts "************ running: ln -nfs #{shared_path}/config/.rvmrc #{release_path}/.rvmrc"
+  #     # run "ln -nfs .rvmrc #{shared_path}/config/.rvmrc"
+  #     run "ln -nfs #{shared_path}/config/.rvmrc #{release_path}/.rvmrc"
+  #   end
+  # end
   
   
 end # namespace :deploy do
 
-after "deploy:symlink",       "deploy:rvmrc:symlink"
+# after "deploy:symlink",       "deploy:rvmrc:symlink"
 
 =begin
   http://merbist.com/2011/08/30/deploying-a-rails-3-1-app-gotchas/ has some good advice on deploying
