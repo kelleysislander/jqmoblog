@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem 'nifty-generators', :group => :development
 gem "haml"
 gem "haml-rails"
+gem 'therubyracer', :require => 'v8'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -37,7 +37,7 @@ role :db, domain, :primary => true
 #############################################################
 
 set :scm, :git
-set :repository, "git@github.com:semaphoremobile/Victoria.git"
+set :repository, "git@github.com:kelleysislander/jqmoblog.git"
 set :branch, "master"
 #set :repository_cache, "git_cache"
 #set :deploy_via, :remote_cache         # http://help.github.com/capistrano/ says: In most cases you want to use this option, otherwise each deploy will do a full repository clone every time.
