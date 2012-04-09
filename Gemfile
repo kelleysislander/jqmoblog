@@ -24,6 +24,7 @@ gem 'nifty-generators', :group => :development
 gem "haml"
 gem "haml-rails"
 gem 'therubyracer', :require => 'v8'
+gem 'execjs'
 
 # Use unicorn as the web server
 # gem 'unicorn'
