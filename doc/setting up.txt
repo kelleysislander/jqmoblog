@@ -1,0 +1,31 @@
+CREATE TABLE posts ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255), body varchar(1000),created_at DATETIME, updated_at   DATETIME );
+
+base: &base
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  username: root
+  password: r3dsonia
+  
+development:
+  database: victoria_dev
+  socket: /tmp/mysql.sock
+  <<: *base
+
+staging:
+  database: victoria_staging
+  socket: /var/run/mysqld/mysqld.sock
+  <<: *base
+
+test:
+  database: victoria_test
+  socket: /tmp/mysql.sock
+  <<: *base
+  
+production:
+  database: victoria_production
+  socket: /var/run/mysqld/mysqld.sock
+  <<: *base
+  
+sudo install_name_tool -change libmysqlclient.18.dylib /usr/local/mysql-5.5.15-osx10.6-x86_64/lib/libmysqlclient.18.dylib /Volumes/MainHD/Users/billy/.rvm/gems/ruby-1.9.2-p290@jqmoblog/gems/mysql2-0.3.11/lib/mysql2/mysql2.bundle

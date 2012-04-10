@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  # http://localhost:3000/posts.json (GET)
   def index
     @posts = Post.all
     respond_to do |format|
@@ -20,9 +21,14 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  # http://localhost:3000/posts/post_record.json (POST)
   def post_record
     respond_to do |format|
       format.json {
+        params = {}
+        params[:post] = {}
+        params[:post][:title] = "post title #{DateTime.now}"
+        params[:post][:body] = "post body  #{DateTime.now}"
         @post = Post.new(params[:post])
         if @post.save
           render :json => { :status => "Successfully created post." }

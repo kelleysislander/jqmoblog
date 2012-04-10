@@ -1,8 +1,7 @@
 Jqmoblog::Application.routes.draw do
+  resources :posts
 
-  # resources :posts
-
-  resources :posts, :only => [:index, :new, :create, :edit, :update, :destroy] do
+  resources :posts, :only => [:post_record] do
     collection do
       post  :post_record
     end
